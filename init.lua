@@ -1,0 +1,7 @@
+require 'Jove.plugins'
+require 'Jove.toggleterm'
+require 'Jove.airline'
+require 'Jove.settings'
+require 'Jove.commentary'
+require 'Jove.nvim-tree'
+require 'Jove.telescope'
