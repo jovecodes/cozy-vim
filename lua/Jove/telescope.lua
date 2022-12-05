@@ -1,4 +1,4 @@
 vim.cmd[[
-nnoremap <leader>F :Telescope find_files <CR>
-nnoremap <leader>T :Telescope live_grep <CR>
+nnoremap ;f :Telescope find_files <CR>
+nnoremap ;g :Telescope live_grep <CR>
 ]]

@@ -65,9 +65,9 @@ nvim_tree.setup {
     },
   },
 }
+
 vim.cmd[[
-nnoremap <leader>f :NvimTreeToggle <CR>
-nnoremap fo :NvimTreeFocus <CR>
+nnoremap <leader>f :NvimTreeFocus <CR>
 let g:nvim_tree_auto_close = 1
 ]]
 
