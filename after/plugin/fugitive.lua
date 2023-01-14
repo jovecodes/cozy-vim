@@ -1,7 +1,10 @@
 vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
 vim.keymap.set("n", "<C-p>", ":Git push -u origin ", opts)
 vim.keymap.set("n", "<C-a>", ":Git add ", opts)
-vim.keymap.set("n", "<C-c>", ":Git commit -m ", opts)
+vim.keymap.set("n", "<C-c>", function()
+  local input = vim.fn.input("Commit message: ")
+  vim.cmd('Git commit -m "' .. input .. '"')
+end)
 
 local Jove_Fugitive = vim.api.nvim_create_augroup("Jove_Fugitive", {})
 
