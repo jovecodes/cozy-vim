@@ -1,4 +1,5 @@
 vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
+vim.keymap.set("n", "<C-p>", ":Git push -u origin ", opts)
 
 local Jove_Fugitive = vim.api.nvim_create_augroup("Jove_Fugitive", {})
 
@@ -18,7 +19,7 @@ autocmd("BufWinEnter", {
         end, opts)
 
         -- rebase always
-        vim.keymap.set("n", "<leader>P", function()
+        vim.keymap.set("n", "<leader>o", function()
             vim.cmd.Git({'pull',  '--rebase'})
         end, opts)
 
