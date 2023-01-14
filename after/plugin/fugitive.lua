@@ -2,34 +2,13 @@ vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
 vim.keymap.set("n", "<C-p>", ":Git push -u origin ", opts)
 vim.keymap.set("n", "<C-a>", ":Git add ", opts)
 vim.keymap.set("n", "<C-c>", function()
-  local input = vim.fn.input("Commit message: ")
-  vim.cmd('Git commit -m "' .. input .. '"')
+    local input = vim.fn.input("Commit message: ")
+    vim.cmd('Git commit -m "' .. input .. '"')
 end)
 
-local Jove_Fugitive = vim.api.nvim_create_augroup("Jove_Fugitive", {})
-
-local autocmd = vim.api.nvim_create_autocmd
-autocmd("BufWinEnter", {
-    group = Jove_Fugitive,
-    pattern = "*",
-    callback = function()
-        if vim.bo.ft ~= "fugitive" then
-            return
-        end
-
-        local bufnr = vim.api.nvim_get_current_buf()
-        local opts = {buffer = bufnr, remap = false}
-        vim.keymap.set("n", "<leader>p", function()
-            vim.cmd.Git('push')
-        end, opts)
-
-        -- rebase always
-        vim.keymap.set("n", "<leader>o", function()
-            vim.cmd.Git({'pull',  '--rebase'})
-        end, opts)
-
-        -- NOTE: It allows me to easily set the branch i am pushing and any tracking
-        -- needed if i did not set the branch up correctly
-        vim.keymap.set("n", "<leader><C-p>", ":Git push -u origin ", opts);
-    end,
-})
+vim.keymap.set("n", "<C-g>", function()
+    vim.cmd(":Git add .")
+    local input = vim.fn.input("Commit message: ")
+    vim.cmd('Git commit -m "' .. input .. '"')
+    vim.cmd(":Git push -u origin main")
+end)
