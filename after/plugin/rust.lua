@@ -43,19 +43,14 @@ vim.diagnostic.config({
     signs = true,
     update_in_insert = true,
     underline = true,
-    severity_sort = false,
+    severity_sort = true,
     float = {
         border = 'rounded',
         source = 'always',
-        header = '',
+        header = 'Diagnostic',
         prefix = '',
     },
 })
-
-vim.cmd([[
-set signcolumn=yes
-autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
-]])
 
 -- Completion Plugin Setup
 local cmp = require'cmp'
@@ -69,8 +64,8 @@ cmp.setup({
     mapping = {
         ['<C-k>'] = cmp.mapping.select_prev_item(),
         ['<C-j>'] = cmp.mapping.select_next_item(),
-        ['<C-S-f>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-d>'] = cmp.mapping.scroll_docs(4),
+        ['<C-s>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-S-s>'] = cmp.mapping.scroll_docs(4),
         ['<C-c>'] = cmp.mapping.complete(),
         ['<C-e>'] = cmp.mapping.close(),
         ['<C-f>'] = cmp.mapping.confirm({
@@ -94,15 +89,5 @@ cmp.setup({
     },
     formatting = {
         fields = {'menu', 'abbr', 'kind'},
-        format = function(entry, item)
-            local menu_icon ={
-                nvim_lsp = 'λ',
-                vsnip = '⋗',
-                buffer = 'Ω',
-                path = '🖫',
-            }
-            item.menu = menu_icon[entry.source.name]
-            return item
-        end,
     },
 })
