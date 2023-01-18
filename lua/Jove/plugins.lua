@@ -31,6 +31,7 @@ return require('packer').startup(function(use)
     use 'nvim-lua/plenary.nvim'
     use 'mfussenegger/nvim-dap'
     use("folke/zen-mode.nvim")
+
     -- Completion framework:
     use 'hrsh7th/nvim-cmp' 
 
@@ -45,8 +46,10 @@ return require('packer').startup(function(use)
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/vim-vsnip'
 
+    -- Syntax Highlighting
     use 'nvim-treesitter/nvim-treesitter'
 
+    -- Filetree
     use 'nvim-tree/nvim-web-devicons'
     use {
         'nvim-tree/nvim-tree.lua',
