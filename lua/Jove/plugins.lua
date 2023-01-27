@@ -67,5 +67,4 @@ return require('packer').startup(function(use)
     use 'numToStr/Comment.nvim'
     use 'preservim/tagbar'
     use 'folke/trouble.nvim'
-
 end)

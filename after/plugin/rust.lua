@@ -4,7 +4,7 @@ require('lspconfig').rust_analyzer.setup {
             checkOnSave = {
                 allFeatures = true,
                 overrideCommand = {
-                    'cargo', 'clippy', '--workspace', '--message-format=json',
+                    'cargo', 'clippy', 'fmt', '--workspace', '--message-format=json',
                     '--all-targets', '--all-features'
                 }
             }
@@ -19,8 +19,10 @@ rt.setup({
         on_attach = function(_, bufnr)
             -- Hover actions
             vim.keymap.set("n", "<leader>h", rt.hover_actions.hover_actions, { buffer = bufnr })
+            vim.keymap.set("i", "<C-h>", rt.hover_actions.hover_actions, { buffer = bufnr })
             -- Code action groups
             vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+            vim.keymap.set("i", "<C-a>", rt.code_action_group.code_action_group, { buffer = bufnr })
         end,
     },
 })
@@ -65,7 +67,7 @@ cmp.setup({
         ['<C-k>'] = cmp.mapping.select_prev_item(),
         ['<C-j>'] = cmp.mapping.select_next_item(),
         ['<C-s>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-S-s>'] = cmp.mapping.scroll_docs(4),
+        ['<C-d>'] = cmp.mapping.scroll_docs(4),
         ['<C-c>'] = cmp.mapping.complete(),
         ['<C-e>'] = cmp.mapping.close(),
         ['<C-f>'] = cmp.mapping.confirm({
@@ -76,7 +78,7 @@ cmp.setup({
     -- Installed sources:
     sources = {
         { name = 'path' },                              -- file paths
-        { name = 'nvim_lsp', keyword_length = 3 },      -- from language server
+        { name = 'nvim_lsp', keyword_length = 2 },      -- from language server
         { name = 'nvim_lsp_signature_help'},            -- display function signatures with current parameter emphasized
         { name = 'nvim_lua', keyword_length = 2},       -- complete neovim's Lua runtime API such vim.lsp.*
         { name = 'buffer', keyword_length = 2 },        -- source current buffer
