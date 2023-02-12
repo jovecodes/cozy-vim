@@ -1,4 +1,3 @@
-
 local status_ok, nvim_tree = pcall(require, "nvim-tree")
 if not status_ok then
     return
@@ -33,11 +32,11 @@ nvim_tree.setup {
                     symlink_open = "",
                 },
                 git = {
-                    unstaged = "✗",
-                    staged = "✓",
+                    unstaged = "",
+                    staged = "S",
                     unmerged = "",
                     renamed = "➜",
-                    untracked = "★",
+                    untracked = "U",
                     deleted = "",
                     ignored = "◌",
                 },
@@ -66,9 +65,14 @@ nvim_tree.setup {
             },
         },
     },
+    filesystem_watchers = {
+        enable = true,
+        debounce_delay = 50,
+        ignore_dirs = {'target'},
+    },
 }
 
 vim.cmd[[
-nnoremap <leader>v :NvimTreeFocus <CR>
+nnoremap <silent> <leader>v :NvimTreeFocus <CR>
 let g:nvim_tree_auto_close = 1
 ]]
