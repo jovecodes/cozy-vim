@@ -1,4 +1,5 @@
 require("Jove.plugins")
+require('impatient')
 require("Jove.set")
 require("Jove.remaps")
 require("Jove.opts")

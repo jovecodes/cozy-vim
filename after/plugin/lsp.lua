@@ -1,6 +1,26 @@
 require('mason').setup()
-require("mason-lspconfig").setup()
 
+require('lspconfig').rust_analyzer.setup {
+    settings = {
+        ['rust-analyzer'] = {
+            checkOnSave = {
+                allFeatures = true,
+                overrideCommand = {
+                    'cargo', 'clippy', 'fmt', '--workspace', '--message-format=json',
+                    '--all-targets', '--all-features'
+                }
+            }
+        }
+    }
+}
+
+require('lspconfig').wgsl_analyzer.setup {
+
+}
+
+-- require('lspconfig').lua_language_server.setup {
+--
+-- }
 
 local rt = require("rust-tools")
 
@@ -17,19 +37,6 @@ rt.setup({
     },
 })
 
-require('lspconfig').rust_analyzer.setup {
-    settings = {
-        ['rust-analyzer'] = {
-            checkOnSave = {
-                allFeatures = true,
-                overrideCommand = {
-                    'cargo', 'clippy', 'fmt', '--workspace', '--message-format=json',
-                    '--all-targets', '--all-features'
-                }
-            }
-        }
-    }
-}
 
 
 -- LSP Diagnostics Options Setup 

@@ -119,6 +119,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\Jove\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\gruvbox-material",
     url = "https://github.com/sainnhe/gruvbox-material"
   },
+  ["impatient.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\Jove\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\impatient.nvim",
+    url = "https://github.com/lewis6991/impatient.nvim"
+  },
   ["indent-blankline.nvim"] = {
     loaded = true,
     path = "C:\\Users\\Jove\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\indent-blankline.nvim",

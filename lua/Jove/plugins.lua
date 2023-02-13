@@ -6,6 +6,8 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
+    use 'lewis6991/impatient.nvim'
+
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.0',
         requires = { {'nvim-lua/plenary.nvim'} }
@@ -67,4 +69,5 @@ return require('packer').startup(function(use)
     use 'numToStr/Comment.nvim'
     use 'preservim/tagbar'
     use 'folke/trouble.nvim'
+
 end)
