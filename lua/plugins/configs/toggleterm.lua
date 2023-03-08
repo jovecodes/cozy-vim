@@ -37,3 +37,15 @@ vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 vim.cmd[[
 autocmd BufWinEnter,WinEnter term://* startinsert
 ]]
+
+local Terminal = require("toggleterm.terminal").Terminal
+
+function _CARGO_RUN()
+	cargo_run:toggle()
+end
+
+local cargo_test = Terminal:new({ cmd = "cargo test", hidden = true })
+
+function _CARGO_TEST()
+	cargo_test:toggle()
+end
