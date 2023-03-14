@@ -5,7 +5,4 @@ if not status_ok then
 end
 
 lualine.setup({
-    sections = {
-        lualine_x = { "overseer" },
-    },
 })

@@ -182,9 +182,10 @@ return {
 	{ "lewis6991/impatient.nvim" },
 
 	-- Rust
-	{
-		"simrat39/rust-tools.nvim",
-	},
+	{ "simrat39/rust-tools.nvim" },
 	{ "Saecki/crates.nvim" },
+
+    -- Git
+    { "tpope/vim-fugitive" }
 }
 
