@@ -186,6 +186,9 @@ return {
 	{ "Saecki/crates.nvim" },
 
     -- Git
-    { "tpope/vim-fugitive" }
+    { "tpope/vim-fugitive" },
+
+    -- Transparent backround 
+    { "xiyaowong/nvim-transparent" },
 }
 
