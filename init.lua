@@ -44,4 +44,5 @@ require("lazy").setup({
 })
 
 require('plugins.configs.telescope')
+require('plugins.configs.toggleterm')
 require("Jove")

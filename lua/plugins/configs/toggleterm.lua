@@ -40,12 +40,17 @@ autocmd BufWinEnter,WinEnter term://* startinsert
 
 local Terminal = require("toggleterm.terminal").Terminal
 
+local cargo_test = Terminal:new({ cmd = "cargo test | tail -f", hidden = false })
+local cargo_run = Terminal:new({ cmd = "cargo run | tail -f", hidden = false })
+
 function _CARGO_RUN()
 	cargo_run:toggle()
 end
 
-local cargo_test = Terminal:new({ cmd = "cargo test", hidden = true })
+vim.api.nvim_set_keymap('n', '<leader>r', ':ToggleTerm<CR>cargo run<CR>', { noremap = true, silent = true })
 
 function _CARGO_TEST()
 	cargo_test:toggle()
 end
+
+vim.api.nvim_set_keymap('n', '<leader>ct', ':lua _CARGO_RUN()<CR>', { noremap = true, silent = true })

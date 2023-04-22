@@ -6,7 +6,7 @@ end
 
 vim.filetype.add({extension = {wgsl = "wgsl"}})
 
-require 'nvim-treesitter.install'.compilers = { "clang", "cargo" }
+require 'nvim-treesitter.install'.compilers = { "g++", "gcc", "cargo" }
 
 local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
 parser_config.wgsl = {
@@ -41,6 +41,8 @@ treesitter.setup({
 		"vim",
 		"rust",
 		"toml",
+        "c",
+        "cpp",
 	},
 	-- auto install above language parsers
 	auto_install = false,

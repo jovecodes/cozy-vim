@@ -134,9 +134,6 @@ return {
 	-- toggleterm
 	{
 		"akinsho/toggleterm.nvim",
-		config = function()
-			require("plugins.configs.toggleterm")
-		end,
 	},
 
 	-- Auto completions
