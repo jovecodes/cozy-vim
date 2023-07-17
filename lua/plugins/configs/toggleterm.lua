@@ -57,6 +57,7 @@ vim.cmd([[
     autocmd!
     autocmd FileType rs lua RustCommands()
     autocmd FileType c lua CCommands()
+    autocmd FileType cpp lua CCommands()
     autocmd FileType zig lua ZigCommands()
     augroup END
 ]])

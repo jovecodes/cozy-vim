@@ -12,6 +12,7 @@ telescope.setup({
 		file_ignore_patterns = {
 			".git/",
 			"target/",
+			"extern/",
 			"docs/",
 			"vendor/*",
 			"%.lock",
