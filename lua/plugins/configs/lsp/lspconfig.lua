@@ -37,23 +37,23 @@ lspconfig["zls"].setup({})
 
 lspconfig["ocamllsp"].setup({})
 
-lspconfig["clangd"].setup {
-  capabilities = capabilities,
-  cmd = {
-    "clangd",
-    "--background-index",
-    "--clang-tidy",
-    "--header-insertion=iwyu",
-    "--completion-style=detailed",
-    "--function-arg-placeholders"
-  },
-  init_options = {
-    usePlaceholders = true,
-    completeUnimported = true,
-    clangdFileStatus = true
-  },
-  flags = { debounce_text_changes = 150 }
-}
+-- lspconfig["clangd"].setup {
+--   capabilities = capabilities,
+--   cmd = {
+--     "clangd",
+--     "--background-index",
+--     "--clang-tidy",
+--     "--header-insertion=iwyu",
+--     "--completion-style=detailed",
+--     "--function-arg-placeholders"
+--   },
+--   init_options = {
+--     usePlaceholders = true,
+--     completeUnimported = true,
+--     clangdFileStatus = true
+--   },
+--   flags = { debounce_text_changes = 150 }
+-- }
 
 -- configure lua server (with special settings)
 lspconfig["lua_ls"].setup({

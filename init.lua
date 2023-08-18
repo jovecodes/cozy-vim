@@ -50,9 +50,9 @@ vim.cmd("set filetype")
 require('plugins.configs.telescope')
 require('plugins.configs.toggleterm')
 require("Jove")
-
-vim.cmd([[
-    let g:opamshare = substitute(system('opam var share'),'\n$','','''')
-    execute "set rtp+=" . g:opamshare . "/merlin/vim"
-]])
+--
+-- vim.cmd([[
+--     let g:opamshare = substitute(system('opam var share'),'\n$','','''')
+--     execute "set rtp+=" . g:opamshare . "/merlin/vim"
+-- ]])
 
