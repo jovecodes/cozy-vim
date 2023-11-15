@@ -1,0 +1,32 @@
+{
+    "workspace.library": [
+        "/home/jove/.config/nvim/lua",
+        "/home/jove/.local/share/nvim/lazy/lazy.nvim/lua",
+        "/home/jove/.local/share/nvim/lazy/gitsigns.nvim/lua",
+        "/home/jove/.local/share/nvim/lazy/mason-lspconfig.nvim/lua",
+        "/home/jove/.local/share/nvim/lazy/cmp-buffer/lua",
+        "/home/jove/.local/share/nvim/lazy/nvim-autopairs/lua",
+        "/home/jove/.local/share/nvim/lazy/LuaSnip/lua",
+        "/home/jove/.local/share/nvim/lazy/telescope-file-browser.nvim/lua",
+        "/home/jove/.local/share/nvim/lazy/nvim-notify/lua",
+        "/home/jove/.local/share/nvim/lazy/cmp-nvim-lua/lua",
+        "/home/jove/.local/share/nvim/lazy/nvim-cmp/lua",
+        "/home/jove/.local/share/nvim/lazy/cmp-nvim-lsp/lua",
+        "/home/jove/.local/share/nvim/lazy/cmp-path/lua",
+        "/home/jove/.local/share/nvim/lazy/plenary.nvim/lua",
+        "/home/jove/.local/share/nvim/lazy/nvim-treesitter/lua",
+        "/home/jove/.local/share/nvim/lazy/oil.nvim/lua",
+        "/home/jove/.local/share/nvim/lazy/nvim-lspconfig/lua",
+        "/home/jove/.local/share/nvim/lazy/tokyonight.nvim/lua",
+        "/home/jove/.local/share/nvim/lazy/nvim-comment/lua",
+        "/home/jove/.local/share/nvim/lazy/cmp_luasnip/lua",
+        "/home/jove/.local/share/nvim/lazy/nvim-colorizer.lua/lua",
+        "/home/jove/.local/share/nvim/lazy/cmp-cmdline/lua",
+        "/home/jove/.local/share/nvim/lazy/telescope.nvim/lua",
+        "/home/jove/.local/share/nvim/lazy/nvim-web-devicons/lua",
+        "/home/jove/.local/share/nvim/lazy/nvim-tree.lua/lua",
+        "/home/jove/.local/share/nvim/lazy/mason.nvim/lua",
+        "/usr/local/share/nvim/runtime/lua",
+        "${3rd}/luassert/library"
+    ]
+}

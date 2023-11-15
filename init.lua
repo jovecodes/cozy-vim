@@ -1,58 +1,64 @@
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-    vim.fn.system({
-        "git",
-        "clone",
-        "--filter=blob:none",
-        "https://github.com/folke/lazy.nvim.git",
-        "--branch=stable", -- latest stable release
-        lazypath,
-    })
-end
-vim.opt.rtp:prepend(lazypath)
-
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
-
-require("lazy").setup({
-	spec = {
-		{ import = "plugins" },
-	},
-	defaults = {
-		-- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
-		-- If you know what you're doing, you can set this to `true` to have all your custom plugins lazy-loaded by default.
-		lazy = false,
-		-- It's recommended to leave version=false for now, since a lot the plugin that support versioning,
-		-- have outdated releases, which may break your Neovim install.
-		version = false, -- always use the latest git commit
-		-- version = "*", -- try installing the latest stable version for plugins that support semver
-	},
-	install = { colorscheme = { "gruvbox-material" } },
-	checker = { enabled = true }, -- automatically check for plugin updates
-	performance = {
-		rtp = {
-			-- disable some rtp plugins
-			disabled_plugins = {
-				"gzip",
-				"tarPlugin",
-				"tohtml",
-				"tutor",
-				"zipPlugin",
-			},
-		},
-	},
-})
-
-vim.cmd("set grepprg=grep\\ -nH\\ $*")
-vim.cmd("set shell=/usr/bin/zsh")
-vim.cmd("set filetype")
-
-require('plugins.configs.telescope')
-require('plugins.configs.toggleterm')
-require("Jove")
+--[[ init.lua
 --
--- vim.cmd([[
---     let g:opamshare = substitute(system('opam var share'),'\n$','','''')
---     execute "set rtp+=" . g:opamshare . "/merlin/vim"
--- ]])
+--      \/       \/
+--      /\_______/\
+--     /   o   o   \
+--    (  ==  ^  ==  )
+--     )           (
+--    (             )
+--    ( (  )   (  ) )
+--   (__(__)___(__)__)
+--  ___
+--   | |_  _  _     o __
+--   | | |(/_(_)\_/ | |||
+--
+-- Cat : https://www.asciiart.eu/animals/cats
+--      My friend added a few layers of belly so it looks more like chunky my cat Oliver
+-- Logo: $ figlet -f mini Theovim
+--
+-- Initialize all configuration files
+--]]
 
+-- Try catch for modules
+local function safe_require(module)
+    local status, loaded_module = pcall(require, module)
+    if status then
+        return loaded_module
+    end
+    vim.notify("Error loading the module: " .. module)
+    return nil
+end
+
+-- Core config modules
+safe_require("core")
+safe_require("plugins")
+
+-- Theovim built-in UI elements
+local highlights = safe_require("ui.highlights")
+if highlights then highlights.setup() end
+local statusline = safe_require("ui.statusline")
+if statusline then statusline.setup() end
+local tabline = safe_require("ui.tabline")
+if tabline then tabline.setup() end
+-- local winbar = safe_require("ui.winbar")
+-- if winbar then winbar.setup() end
+local dashboard = safe_require("ui.dashboard")
+if dashboard then dashboard.setup() end
+
+-- LSP configurations
+safe_require("lsp.lsp")
+safe_require("lsp.completion")
+
+-- Plugin configurations
+safe_require("config.fuzzy")
+safe_require("config.treesitter")
+safe_require("config.toggleterm")
+safe_require("config.comment")
+safe_require("config.dap")
+require("jump_to_path")
+
+-- Other Theovim features
+safe_require("misc")
+
+-- User configuration
+safe_require("config")
