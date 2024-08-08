@@ -22,7 +22,7 @@ local plugins = {
     { "nvim-tree/nvim-web-devicons", }, --> Icons for barbar, Telescope, and more
 
     -- Games
-    "ThePrimeagen/vim-be-good",
+    -- "ThePrimeagen/vim-be-good",
 
     -- UI
     {
@@ -53,8 +53,11 @@ local plugins = {
         "nvim-telescope/telescope.nvim",    --> Expandable fuzzy finer
         -- ! Latest version to support Neovim 0.8
         -- Will be updated in the future Theovim release
-        version = "0.1.1",
+        -- version = "0.1.1",
     },
+
+    -- Find and replace
+    { 'nvim-pack/nvim-spectre' },
 
     {
         "stevearc/oil.nvim", --> Manage files like Vim buffer; currently testing!
@@ -87,7 +90,7 @@ local plugins = {
     },
     { "neovim/nvim-lspconfig", },                                                   --> Neovim defult LSP engine
     { "williamboman/mason-lspconfig.nvim", },                                       --> Bridge between Mason and lspconfig
-    { "theopn/friendly-snippets", },                                                --> VS Code style snippet collection
+    { "rafamadriz/friendly-snippets", },                                            --> VS Code style snippet collection
     {
         "L3MON4D3/LuaSnip",                                                         --> Snippet engine that accepts VS Code style snippets
         config = function() require("luasnip.loaders.from_vscode").lazy_load() end, --> Load snippets from friendly snippets
@@ -177,14 +180,6 @@ local plugins = {
             --     "Don't Save Current Session",
             -- },
         },
-    },
-
-    {
-        "luukvbaal/statuscol.nvim",
-        config = function()
-            -- local builtin = require("statuscol.builtin")
-            require("statuscol").setup()
-        end,
     },
 }
 

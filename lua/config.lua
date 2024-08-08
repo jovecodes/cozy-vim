@@ -10,8 +10,8 @@
 --]]
 
 -- Setting a PDF viewer for a live compilation. Skim for Mac and Zathura for Linux
-vim.g.vimtex_view_method = "skim"
---vim.g.vimtex_view_method = "zathura"
+-- vim.g.vimtex_view_method = "mupdf"
+vim.g.vimtex_view_method = "zathura"
 
 -- Theo's Neovide settings
 if vim.g.neovide then

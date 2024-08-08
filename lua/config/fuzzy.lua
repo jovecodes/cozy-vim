@@ -39,7 +39,7 @@ telescope.setup({
             "%.sqlite3",
             "%.ipynb",
             "node_modules/*",
-            -- "%.o",
+            "%.o",
             "%.jpg",
             "%.jpeg",
             "%.png",
@@ -85,6 +85,11 @@ telescope.setup({
         },
     },
     extensions = {},
+    pickers = {
+        find_files = {
+            previewer = false,
+        },
+    },
 })
 
 -- Load file browser extension AFTER telescope is initialized

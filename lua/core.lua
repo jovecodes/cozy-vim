@@ -79,7 +79,7 @@ do
     local win_opt = {
         { "number",         true }, --> Line number
         { "relativenumber", true },
-        { "numberwidth",    3 },    --> Width of the number
+        { "numberwidth",    2 },    --> Width of the number
         { "cursorline",     true },
         { "cursorcolumn",   false },
     }
@@ -351,3 +351,8 @@ vim.api.nvim_exec([[
     autocmd BufRead,BufNewFile *.wgsl set filetype=wgsl
   augroup END
 ]], false)
+
+vim.cmd('au BufNewFile,BufRead *.frag setfiletype glsl')
+vim.cmd('au BufNewFile,BufRead *.vert setfiletype glsl')
+vim.cmd('au BufNewFile,BufRead *.fs setfiletype glsl')
+vim.cmd('au BufNewFile,BufRead *.vs setfiletype glsl')
